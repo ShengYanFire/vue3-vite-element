@@ -1,10 +1,17 @@
+<!--
+ * @Descripttion: 啦啦啦哈哈哈
+ * @version: 
+ * @Author: lsy
+ * @Date: 2021-08-30 17:16:55
+ * @LastEditors: lsy
+ * @LastEditTime: 2021-08-31 11:06:49
+-->
 <script setup>
-import HelloWorld from '@/components/HelloWorld.vue'
+
 </script>
 
 <template>
-  <img alt="Vue logo" src="@/assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+  <router-view />
 </template>
 
 <style>
