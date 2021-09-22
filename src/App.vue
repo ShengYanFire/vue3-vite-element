@@ -4,13 +4,27 @@
  * @Author: lsy
  * @Date: 2021-08-30 17:16:55
  * @LastEditors: lsy
- * @LastEditTime: 2021-09-18 17:29:02
+ * @LastEditTime: 2021-09-22 16:44:53
 -->
-<script setup>
-import appmain from "@/views/appmain.vue"
-</script>
 <template>
-  <appmain />
+  <div id="app_div" :style="{ height: clientHeight + 'px' }">
+    <router-view />
+  </div>
 </template>
-<style>
+
+<script setup>
+import { ref } from "@vue/reactivity";
+
+const clientHeight = ref(document.documentElement.clientHeight);
+window.onresize = () => {
+  clientHeight.value = document.documentElement.clientHeight;
+};
+</script>
+
+<style lang="scss" scoped>
+#app_div {
+  background-image: url(@/assets/images/bg.png);
+  background-size: 100% 100%;
+}
 </style>
+
