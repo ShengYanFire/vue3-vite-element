@@ -4,7 +4,7 @@
  * @Author: lsy
  * @Date: 2021-09-22 14:28:23
  * @LastEditors: lsy
- * @LastEditTime: 2021-09-22 16:42:25
+ * @LastEditTime: 2021-09-23 17:01:14
 -->
 <template>
   <div id="login_div" align="center">
@@ -30,6 +30,8 @@
 <script setup>
 import { reactive, ref } from "@vue/reactivity";
 import { useRouter } from "vue-router";
+import axios from "axios"
+import { ElMessage } from 'element-plus'
 
 const loginRef = ref(null);
 const rules = {
@@ -45,7 +47,20 @@ const router = useRouter();
 const onSubmit = () => {
   loginRef.value.validate(valid => {
     if (valid) {
-      router.push({ path: "/home" })
+      axios.post("http://localhost:3333/api/login", loginForm).then((res) => {
+        if (res.data.data.length > 0) {
+          ElMessage({
+            message: '登录成功',
+            type: 'success',
+          })
+          router.push({ path: "/" })
+        } else {
+          ElMessage({
+            message: '登录失败',
+            type: 'error',
+          })
+        }
+      })
     }
   })
 }
@@ -55,7 +70,7 @@ const onSubmit = () => {
 #login_div {
   position: relative;
   top: 40%;
-  left:50%;
+  left: 50%;
   width: 300px;
   padding: 25px;
   padding-top: 50px;

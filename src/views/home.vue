@@ -4,7 +4,7 @@
  * @Author: lsy
  * @Date: 2021-08-30 17:16:55
  * @LastEditors: lsy
- * @LastEditTime: 2021-09-22 14:42:59
+ * @LastEditTime: 2021-09-23 10:19:55
 -->
 
 
@@ -34,10 +34,10 @@ const user = reactive({
 const router = useRouter()
 
 function chang() {
- router.push({ path: "/login" });
+ router.push({ path: "/login12312" });
 }
 
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 </style>

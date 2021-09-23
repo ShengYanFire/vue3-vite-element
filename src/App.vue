@@ -4,7 +4,7 @@
  * @Author: lsy
  * @Date: 2021-08-30 17:16:55
  * @LastEditors: lsy
- * @LastEditTime: 2021-09-22 16:44:53
+ * @LastEditTime: 2021-09-23 10:21:55
 -->
 <template>
   <div id="app_div" :style="{ height: clientHeight + 'px' }">
@@ -23,8 +23,7 @@ window.onresize = () => {
 
 <style lang="scss" scoped>
 #app_div {
-  background-image: url(@/assets/images/bg.png);
-  background-size: 100% 100%;
+  background: linear-gradient(30deg, #f9f9fa 0%, #35355a 100%);
 }
 </style>
 

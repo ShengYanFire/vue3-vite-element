@@ -4,27 +4,17 @@
  * @Author: lsy
  * @Date: 2021-08-30 17:17:50
  * @LastEditors: lsy
- * @LastEditTime: 2021-09-22 15:19:50
+ * @LastEditTime: 2021-09-23 16:42:10
  */
 import { createRouter, createWebHistory } from "vue-router"
 import globalRoutes from "./globalRoutes.js"
+import mainRoutes from "./mainRoutes.js"
 
 const Router = createRouter({
   history: createWebHistory(),
   routes: [
-    ...globalRoutes,
-    {
-      path: "/",
-      name: "AppMain",
-      component: () => import("@/views/AppMain.vue"),
-      children: [
-        {
-          path: "/home",
-          name: "Home",
-          component: () => import("@/views/home.vue")
-        }
-      ]
-    }
+    ...mainRoutes,
+    ...globalRoutes
   ]
 })
 
