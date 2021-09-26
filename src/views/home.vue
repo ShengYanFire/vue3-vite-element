@@ -4,40 +4,18 @@
  * @Author: lsy
  * @Date: 2021-08-30 17:16:55
  * @LastEditors: lsy
- * @LastEditTime: 2021-09-23 10:19:55
+ * @LastEditTime: 2021-09-26 17:17:57
 -->
 
 
 <template>
-  <router-link :to="'/login'">dsadada</router-link>
-  <el-button type="primary" size="default" @click="chang()">
-    {{ msg }}{{ count }}
-  </el-button>
-  姓名：{{ user.name }}、年龄：{{ user.age }}
+  <router-link :to="'/login'">退出</router-link>
 </template>
 
 <script setup>
-import { ref, reactive } from 'vue'
-import { useRouter } from "vue-router";
-
-defineProps({
-  msg: String
-});
-
-const count = ref(0);
-
-const user = reactive({
-  name: "qwe",
-  age: 0
-})
-
-const router = useRouter()
-
-function chang() {
- router.push({ path: "/login12312" });
-}
 
 </script>
 
 <style lang="scss" scoped>
+
 </style>

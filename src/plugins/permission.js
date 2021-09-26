@@ -4,7 +4,7 @@
  * @Author: lsy
  * @Date: 2021-09-22 17:00:29
  * @LastEditors: lsy
- * @LastEditTime: 2021-09-23 10:31:23
+ * @LastEditTime: 2021-09-24 09:19:14
  */
 import globalRoutes from "@/router/globalRoutes.js"
 import mainRoutes from "@/router/mainRoutes.js"
