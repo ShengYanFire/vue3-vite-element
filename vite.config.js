@@ -4,16 +4,32 @@
  * @Author: lsy
  * @Date: 2021-08-30 17:16:55
  * @LastEditors: lsy
- * @LastEditTime: 2021-09-18 17:21:47
+ * @LastEditTime: 2021-12-16 14:11:30
  */
 import { defineConfig } from 'vite'
 import path from "path"
 import vue from '@vitejs/plugin-vue'
+import viteSvgIcons from 'vite-plugin-svg-icons';
+import { NODE_ENV } from "./src/setting.js"
 
+let url = "";
+if (NODE_ENV == "dev") {
+  url = "http://192.168.1.223/prod-api"
+} else {
+  url = "......"
+}
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    vue(),
+    viteSvgIcons({
+      // 指定需要缓存的图标文件夹
+      iconDirs: [path.resolve(process.cwd(), 'src/assets/svg')],
+      // 指定symbolId格式
+      symbolId: 'icon-[name]',
+    })
+  ],
   resolve: {
     alias: {
       //配置项目中引用别名
@@ -21,17 +37,18 @@ export default defineConfig({
     }
   },
 
-  base: "./",  // build打包路径设置
+  base: "/viteDemo/",  // build打包路径设置
 
   // 代理配置
   server: {
-    hot: true,    // 服务器启动后自动打开页面
-    // proxy: {
-    //   '/api': {
-    //     target: 'www.mockUrl.com',
-    //     changeOrigin: true
-    //   }
-    // }
+    host: "0.0.0.0",
+    proxy: {
+      '/api': {
+        target: url,
+        changeOrigin: true,
+        rewrite: path => path.replace(/^\/api/, '')
+      }
+    }
   },
 
   build: {
