@@ -4,7 +4,7 @@
  * @Author: lsy
  * @Date: 2021-08-30 17:16:55
  * @LastEditors: lsy
- * @LastEditTime: 2021-12-16 14:11:30
+ * @LastEditTime: 2022-01-11 11:44:34
  */
 import { defineConfig } from 'vite'
 import path from "path"
@@ -37,7 +37,7 @@ export default defineConfig({
     }
   },
 
-  base: "/viteDemo/",  // build打包路径设置
+  base: "./",  // build打包路径设置
 
   // 代理配置
   server: {
